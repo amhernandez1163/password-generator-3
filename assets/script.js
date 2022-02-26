@@ -14,29 +14,64 @@ var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", 
 function validatePassword () {
   //when user clicks button - prented w a series of prompts
 
-  // prompt = length of password 8 min - 128 max // text input? 
-  var getCharacterInput = window.prompt("Total Character Count? Please enter a value from 8 - 128")
-    
-    if ((getCharacterInput === "" || getCharacterInput > 128 || getCharacterInput < 8)) {
+  // prompt for length of password 8 min - 128 max // text input
+  var characterLength = window.prompt("Total Character Count? Please enter a value from 8 - 128")
+  
+  // parameters for invalid responses - window alert then return to beginning
+  const isInteger = characterLength;  
+  if ((characterLength === "" || characterLength > 128 || characterLength < 8 || characterLength != isInteger)) {
       window.alert("Please enter a valid entry.");
-      validatePassword ();
+      return validatePassword();
     } else {
-      console.log("Your character count is " + getCharacterInput);
+      console.log("Your character count is " + characterLength);
       } 
-
-  // prompt = lowercase? // confirm? - variables set up above
-
   // prompt = uppercase? // confirm? - variables set up above
+  var uppercase = window.confirm("Would you like uppercase values in your password?");
+  
+    if (uppercase) {
+      console.log(uppercase);
+    } else {
+      console.log("Uppercase not wanted");
+    }
+  // prompt = lowercase? // confirm? - variables set up above
+  var lowercase = window.confirm("Would you like lowercase values in your password?");
+      
+    if (lowercase) {
+      console.log(lowercase);
+    } else {
+      console.log("Lowercase not wanted");
+    }
 
-  // prompt = numeric // confirm? - variables set up above
+  // prompt = numeric // confirm? - variables set up above  
+  var numeric = window.confirm("Would you like numeric values in your password?");
+  
+    if (numeric) {
+      console.log(numeric);
+    } else {
+      console.log("Numeric not wanted");
+    }
 
   // prompt = special characters //  confirm? - variables set up above
-    validatePassword();
-  
-  
+  var specialCharacters = window.confirm("Would you like special character values in your password?");
+    if (specialCharacters){
+      console.log(specialCharacters);
+    }  else {
+      console.log("Special Characters not wanted");
+    } 
 
-
+    if (uppercase == false && lowercase == false && numeric == false && specialCharacters == false) {
+      window.alert("You must choose at least one value.")
+      validatePassword();
+    }
+  
   // prompts = must be at least one selected - then validate - how? 
+
+  validatePassword();
+  
+  
+
+
+  
 
 
 
