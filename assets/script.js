@@ -1,5 +1,5 @@
 // Assignment code here 
-
+// Values for validatePassword function
 // array upper
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 // array lower
@@ -11,8 +11,8 @@ var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", 
 // catch all for vaiables
 var characters = []
 
+//when user clicks button - prented w a series of prompts - BEGIN PROMPTS
 function validatePassword () {
-  //when user clicks button - prented w a series of prompts - BEGIN PROMPTS
 
   // prompt for length of password 8 min - 128 max // text input
   var characterLengthPrompt = window.prompt("Total Character Count? Please enter a value from 8 - 128")
