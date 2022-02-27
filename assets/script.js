@@ -1,6 +1,5 @@
 // Assignment code here 
 
-var passwordLength = [];
 // array upper
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 // array lower
@@ -24,7 +23,7 @@ function validatePassword () {
       window.alert("Please enter a valid entry.");
       return validatePassword();
     } else {
-      characters = characters.concat(passwordLength)
+      characters = characters.concat(characterLengthPrompt)
       console.log("Your character count is " + characterLengthPrompt);
       } 
   // prompt = uppercase // confirm 
@@ -66,10 +65,13 @@ function validatePassword () {
       validatePassword();
     }
 
-    validatePassword();
- // this return will pass to var password and display on the screen
-  //return "Gererated password will go here";
-
+    var randomPassword = "";
+      // for loop to generate new password w values selected
+      for (i = 0; i < characterLengthPrompt; i++) {
+        randomPassword = randomPassword + characters[Math.floor(Math.random() * characters.length)];
+      }
+    
+   return randomPassword;
 };
 
 // Get references to the #generate element
@@ -77,13 +79,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var randomPassword = "";
-    // for loop to generate new password w values selected
-      for (i = 0; i < passwordLength; i++) {
-        randomPassword = randomPassword + characters[Math.floor(Math.random() * characters.length)];
-      }
-      writePassword();
-      return randomPassword;
+ var password = validatePassword();
+ var passwordText = document.getElementById("password");
+
+ passwordText.value = password;
 }
 
 // Add event listener to generate button
