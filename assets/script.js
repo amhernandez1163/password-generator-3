@@ -9,6 +9,10 @@ var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // array spec charc
 var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@"];
 
+// randomize vars
+
+var randomUppercase = Math.floor(Math.random() * [uppercase]);
+
 
 
 function validatePassword () {
@@ -58,13 +62,21 @@ function validatePassword () {
     }  else {
       console.log("Special Characters not wanted");
     } 
-
+    // prompt = must be at least one selected 
     if (uppercase == false && lowercase == false && numeric == false && specialCharacters == false) {
       window.alert("You must choose at least one value.")
       validatePassword();
     }
+
+    while (uppercase === true) {
+      console.log(randomUppercase)
+      break;
+    }
   
-  // prompts = must be at least one selected - then validate - how? 
+    // based off inputs, assign a random value from the different var families
+   // if (uppercase === true && lowercase === true && numeric === true && specialCharacters === true){
+   //   return 
+   // }
 
   validatePassword();
   
@@ -81,6 +93,8 @@ function validatePassword () {
   // this return will pass to var password and display on the screen
   return "Gererated password will go here";
 };
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
